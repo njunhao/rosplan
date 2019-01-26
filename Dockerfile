@@ -33,7 +33,7 @@ RUN /bin/bash -c "source /opt/ros/kinetic/setup.bash \
 	&& catkin build"
 
 # clean up
-RUN rm ./install_opencv2_ubuntu.sh ./opencv-2.4.13.5.zip \
+RUN rm ./install_opencv2_ubuntu.sh \
 	&& apt-get autoclean \
 	&& apt-get clean all \
 	&& apt-get autoremove -y \
