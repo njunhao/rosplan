@@ -18,7 +18,9 @@ RUN apt-get update \
 # install openCV
 COPY install_opencv2_ubuntu.sh install_opencv2_ubuntu.sh
 
-RUN ./install_opencv2_ubuntu.sh
+# need to do chmod for older versions of Docker
+RUN /bin/bash -c "chmod +x ./install_opencv2_ubuntu.sh \
+	&& ./install_opencv2_ubuntu.sh"
 
 # download packages
 RUN /bin/bash -c "mkdir -p /workspace/ROS/ROSPlan/src \
