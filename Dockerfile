@@ -18,7 +18,7 @@ RUN apt-get update \
 # install openCV
 COPY install_opencv2_ubuntu.sh install_opencv2_ubuntu.sh
 
-RUN ["chmod", "+x", "install_opencv2_ubuntu.sh"]
+RUN ./install_opencv2_ubuntu.sh
 
 # download packages
 RUN /bin/bash -c "mkdir -p /workspace/ROS/ROSPlan/src \
@@ -33,7 +33,7 @@ RUN /bin/bash -c "source /opt/ros/kinetic/setup.bash \
 	&& catkin build"
 
 # clean up
-RUN rm ./install_opencv2_ubuntu.sh \
+RUN rm ./install_opencv2_ubuntu.sh ./opencv-2.4.13.5.zip \
 	&& apt-get autoclean \
 	&& apt-get clean all \
 	&& apt-get autoremove -y \
